@@ -57,8 +57,10 @@ Dado que o cliente esteja na tela home do site
 
 Quando o cliente clicar no link de sing in, inserir um email válido e clicar no link
 
-    Wait Until Element Is Visible      ${email}
-    Input Text      ${email}      thalesbehringer@gmail.com
+    Wait Until Element Is Visible      ${CREATE_ACCOUNT.EMAIL}
+    Input Text                          ${CREATE_ACCOUNT.EMAIL}      thalesbehringer@gmail.com
+
+    Click Element                       ${CREATE_ACCOUNT.SUBMIT_CREATE}
 
 
 
