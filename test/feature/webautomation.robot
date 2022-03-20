@@ -26,4 +26,4 @@ Cenario 04: Adicionar Cliente
     Debug
     Dado que o cliente esteja na tela home do site
     Quando o cliente clicar no link de sing in, inserir um email válido e clicar no link     
-    Então ele irá preencher os dados obrigatórios, submeter cadastro e será levado para página      MY ACCOUNT
+    Então ele irá preencher os dados obrigatórios, submeter cadastro e será levado para página com a mensagem      Welcome to your account. Here you can manage all of your personal information and orders.

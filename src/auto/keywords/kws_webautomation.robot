@@ -29,6 +29,11 @@ Documentation   keywords referente aos testes da home
 
  #   Should Be Equal As Strings      ${texto}    ${mensagem_erro}
 
+#Caso de Teste 03
+# Dado que o cliente esteja na tela home do site
+#     Title Should Be                     ${HOME.TITULO}
+#     Wait Until Element Is Visible       ${HOME.MENU}
+
 # Quando clicar na sub-categoria
     
 #     [Arguments]     ${subtitulo}
@@ -49,6 +54,7 @@ Documentation   keywords referente aos testes da home
 #     Page Should Contain image           ${BUSCA.IMAGEM_SD_2}
 #     Page Should Contain image           ${BUSCA.IMAGEM_SD_3}
 
+#Caso de Teste 04
 Dado que o cliente esteja na tela home do site
     Title Should Be                     ${HOME.TITULO}
     Wait Until Element Is Visible       ${HOME.MENU}
@@ -58,16 +64,34 @@ Dado que o cliente esteja na tela home do site
 Quando o cliente clicar no link de sing in, inserir um email válido e clicar no link
 
     Wait Until Element Is Visible      ${CREATE_ACCOUNT.EMAIL}
-    Input Text                          ${CREATE_ACCOUNT.EMAIL}      thalesbehringer@gmail.com
+    Input Text                          ${CREATE_ACCOUNT.EMAIL}      ${EMAIL}
 
     Click Element                       ${CREATE_ACCOUNT.SUBMIT_CREATE}
 
 
-Então ele irá preencher os dados obrigatórios, submeter cadastro e será levado para página
+Então ele irá preencher os dados obrigatórios, submeter cadastro e será levado para página com a mensagem
+
+    [Arguments]                         ${mensagem_sucesso}
 
     Wait Until Element Is Visible       ${ACCOUNT.TITLE}
 
+    ${texto}    Get Text                ${ACCOUNT.TITLE}
+    Should Be Equal As Strings          ${texto}    CREATE AN ACCOUNT
 
+    Input Text                          ${ACCOUNT.FIRST_NAME}      ${FIRST_NAME}
+    Input Text                          ${ACCOUNT.LAST_NAME}      ${LAST_NAME}
+    Input Text                          ${ACCOUNT.PASSWORD}      ${PASSWORD}
+    Input Text                          ${ACCOUNT.ADRESS}      ${ADRESS}
+    Input Text                          ${ACCOUNT.CITY}      ${CITY}
+    Select From List By Label           ${ACCOUNT.STATE}    Texas
+    Input Text                          ${ACCOUNT.ZIP}      ${ZIP}
+    Input Text                          ${ACCOUNT.M_PHONE}      ${M_PHONE}
 
+    Click Element                       ${ACCOUNT.SUBMIT}
+
+    Wait Until Element Is Visible       ${m_sucesso}
+
+    ${t_mensagem}   Get Text            ${m_sucesso}
+    Should Be Equal As Strings          ${t_mensagem}    ${mensagem_sucesso}
 
 
