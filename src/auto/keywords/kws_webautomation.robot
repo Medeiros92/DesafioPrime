@@ -105,4 +105,8 @@ Então ele irá preencher os dados obrigatórios, submeter cadastro e será leva
     ${t_mensagem}   Get Text            ${m_sucesso}
     Should Be Equal As Strings          ${t_mensagem}    ${mensagem_sucesso}
 
+#Cenario de Testes 05
+Dado que o cliente está logado no site
+
+
 
