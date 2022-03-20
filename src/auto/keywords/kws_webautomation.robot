@@ -14,6 +14,11 @@ Documentation   keywords referente aos testes da home
  #   Wait Until Element Is Visible       ${BUSCA.PRODUTO}
  #   Page Should Contain image           ${BUSCA.IMAGEM_PRODUTO}
 
+#Caso de Teste 02
+ # Dado que o cliente esteja na tela home do site
+#     Title Should Be                     ${HOME.TITULO}
+#     Wait Until Element Is Visible       ${HOME.MENU}
+
 #Quando realizar a pesquisa de um produto
  #   [Arguments]     ${produto}
 
