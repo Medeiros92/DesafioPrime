@@ -62,9 +62,10 @@ Dado que o cliente esteja na tela home do site
     Click Element                       ${HOME.TITULO_SINGIN}
 
 Quando o cliente clicar no link de sing in, inserir um email válido e clicar no link
+    ${email}  FakerLibrary.Email
 
     Wait Until Element Is Visible      ${CREATE_ACCOUNT.EMAIL}
-    Input Text                          ${CREATE_ACCOUNT.EMAIL}      ${EMAIL}
+    Input Text                          ${CREATE_ACCOUNT.EMAIL}      ${email}
 
     Click Element                       ${CREATE_ACCOUNT.SUBMIT_CREATE}
 
@@ -78,12 +79,17 @@ Então ele irá preencher os dados obrigatórios, submeter cadastro e será leva
     ${texto}    Get Text                ${ACCOUNT.TITLE}
     Should Be Equal As Strings          ${texto}    CREATE AN ACCOUNT
 
-    Input Text                          ${ACCOUNT.FIRST_NAME}      ${FIRST_NAME}
-    Input Text                          ${ACCOUNT.LAST_NAME}      ${LAST_NAME}
+    ${first}  FakerLibrary.FirstName
+    ${last}  FakerLibrary.LastName
+    ${city}  FakerLibrary.City
+    ${state}  FakerLibrary.State
+
+    Input Text                          ${ACCOUNT.FIRST_NAME}      ${first}
+    Input Text                          ${ACCOUNT.LAST_NAME}      ${last}
     Input Text                          ${ACCOUNT.PASSWORD}      ${PASSWORD}
-    Input Text                          ${ACCOUNT.ADRESS}      ${ADRESS}
-    Input Text                          ${ACCOUNT.CITY}      ${CITY}
-    Select From List By Label           ${ACCOUNT.STATE}    Texas
+    Input Text                          ${ACCOUNT.ADRESS}      ${ADDRESS}
+    Input Text                          ${ACCOUNT.CITY}      ${city}
+    Select From List By Label           ${ACCOUNT.STATE}    ${state}
     Input Text                          ${ACCOUNT.ZIP}      ${ZIP}
     Input Text                          ${ACCOUNT.M_PHONE}      ${M_PHONE}
 
